@@ -8,12 +8,14 @@
 import UIKit
 
 class ViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
+    
+    
+    @IBAction func buttonActionPressed() {
+        func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            if segue.identifier == "showCourses" {
+                guard let coursesVC = segue.destination as? TableViewController else { return }
+                coursesVC.fetchCourses()
+            }
+        }
     }
-
-
 }
-
